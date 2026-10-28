@@ -1,0 +1,3 @@
+| tstats max(_time) as ultimo where index=* by host 
+| where ultimo < relative_time(now(),"-24h") 
+| convert ctime(ultimo)
