@@ -1,0 +1,3 @@
+| tstats count max(_time) as ultimo where index=* by index, sourcetype 
+| eval atraso_min=round((now()-ultimo)/60,0) 
+| sort - count
